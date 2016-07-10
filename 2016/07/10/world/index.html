@@ -84,15 +84,22 @@
 
 
 
-<meta name="description" content="哎呀, 你是不是不小心点错连接了">
-<meta property="og:type" content="website">
+<meta name="description" content="fastlane持续集成脚本编写每次当你在专心撸代码的时候，测试姐姐突然找你说，线上出了个问题，打个测试包或者预发包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英啊或者fir啊什么的。为了能够用笑脸来迎接测试姐姐不时的问候，于是下定决心研究了下iOS项目的自动打包脚本。首先，让我们先理一下现在的需求。
+
+方便的更改项目配置（IP地址、名字、bund">
+<meta property="og:type" content="article">
 <meta property="og:title" content="ZhouXiaoHong">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/07/10/world/index.html">
 <meta property="og:site_name" content="ZhouXiaoHong">
-<meta property="og:description" content="哎呀, 你是不是不小心点错连接了">
+<meta property="og:description" content="fastlane持续集成脚本编写每次当你在专心撸代码的时候，测试姐姐突然找你说，线上出了个问题，打个测试包或者预发包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英啊或者fir啊什么的。为了能够用笑脸来迎接测试姐姐不时的问候，于是下定决心研究了下iOS项目的自动打包脚本。首先，让我们先理一下现在的需求。
+
+方便的更改项目配置（IP地址、名字、bund">
+<meta property="og:updated_time" content="2016-07-10T13:43:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ZhouXiaoHong">
-<meta name="twitter:description" content="哎呀, 你是不是不小心点错连接了">
+<meta name="twitter:description" content="fastlane持续集成脚本编写每次当你在专心撸代码的时候，测试姐姐突然找你说，线上出了个问题，打个测试包或者预发包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英啊或者fir啊什么的。为了能够用笑脸来迎接测试姐姐不时的问候，于是下定决心研究了下iOS项目的自动打包脚本。首先，让我们先理一下现在的需求。
+
+方便的更改项目配置（IP地址、名字、bund">
 
 
 
@@ -113,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/10/world/"/>
 
-  <title> ZhouXiaoHong </title>
+  <title>  | ZhouXiaoHong </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +143,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -205,9 +210,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -228,9 +233,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/10/world/" itemprop="url">
-                  未命名
-                </a>
               
             
           </h1>
@@ -277,9 +279,7 @@
       
 
       
-        
-          
-            <h1 id="fastlane持续集成脚本编写"><a href="#fastlane持续集成脚本编写" class="headerlink" title="fastlane持续集成脚本编写"></a>fastlane持续集成脚本编写</h1><p>每次当你在专心撸代码的时候，测试姐姐突然找你说，线上出了个问题，打个测试包或者预发包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英啊或者fir啊什么的。<br>为了能够用笑脸来迎接测试姐姐不时的问候，于是下定决心研究了下iOS项目的自动打包脚本。<br>首先，让我们先理一下现在的需求。</p>
+        <h1 id="fastlane持续集成脚本编写"><a href="#fastlane持续集成脚本编写" class="headerlink" title="fastlane持续集成脚本编写"></a>fastlane持续集成脚本编写</h1><p>每次当你在专心撸代码的时候，测试姐姐突然找你说，线上出了个问题，打个测试包或者预发包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英啊或者fir啊什么的。<br>为了能够用笑脸来迎接测试姐姐不时的问候，于是下定决心研究了下iOS项目的自动打包脚本。<br>首先，让我们先理一下现在的需求。</p>
 <ol>
 <li>方便的更改项目配置（IP地址、名字、bundle Id、team、版本号等）</li>
 <li>方便的打包，并生成ipa</li>
@@ -364,16 +364,19 @@ end
 <pre><code>fir publish path/to/application -T YOUR_FIR_TOKEN
 </code></pre><p>YOUR_FIR_TOKEN可以在fir上查到。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
@@ -381,128 +384,32 @@ end
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/02/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/07/02/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-02T10:50:59+08:00" content="2016-07-02">
-              2016-07-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/02/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/02/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -510,6 +417,17 @@ end
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -529,8 +447,17 @@ end
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -566,6 +493,17 @@ end
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#fastlane持续集成脚本编写"><span class="nav-number">1.</span> <span class="nav-text">fastlane持续集成脚本编写</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改项目配置"><span class="nav-number">1.0.1.</span> <span class="nav-text">更改项目配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用fastlane脚本自动打包"><span class="nav-number">1.0.2.</span> <span class="nav-text">利用fastlane脚本自动打包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传ipa到蒲公英"><span class="nav-number">1.0.3.</span> <span class="nav-text">上传ipa到蒲公英</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传ipa到fir"><span class="nav-number">1.0.4.</span> <span class="nav-text">上传ipa到fir</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -662,6 +600,10 @@ end
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -678,9 +620,9 @@ end
 
     <script type="text/javascript">
       var disqus_shortname = 'zhouxiaohong';
-      var disqus_identifier = 'index.html';
+      var disqus_identifier = '2016/07/10/world/';
       var disqus_title = "";
-      var disqus_url = '';
+      var disqus_url = 'http://yoursite.com/2016/07/10/world/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -691,6 +633,8 @@ end
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   
