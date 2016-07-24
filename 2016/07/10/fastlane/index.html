@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -84,15 +84,34 @@
 
 
 
-<meta name="description" content="iOS开发者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ZhouXiaoHong">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="当你在专心撸代码的时候，测试妹子突然找你说，需要什么什么环境的包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英或者 fir。为了能够用笑脸来迎接测试妹子不时的问候，于是决定写一个 iOS 项目的自动打包脚本。
+首先，让我们先理一下需求。
+
+更改项目配置（例如 host、名字、bundle Id、team、版本号等）
+打包生成 .ipa 文件
+根据需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用多target 以及 fastlane 编写iOS打包脚本">
+<meta property="og:url" content="http://yoursite.com/2016/07/10/fastlane/index.html">
 <meta property="og:site_name" content="ZhouXiaoHong">
-<meta property="og:description" content="iOS开发者">
+<meta property="og:description" content="当你在专心撸代码的时候，测试妹子突然找你说，需要什么什么环境的包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英或者 fir。为了能够用笑脸来迎接测试妹子不时的问候，于是决定写一个 iOS 项目的自动打包脚本。
+首先，让我们先理一下需求。
+
+更改项目配置（例如 host、名字、bundle Id、team、版本号等）
+打包生成 .ipa 文件
+根据需">
+<meta property="og:image" content="http://oathu5z1f.bkt.clouddn.com/屏幕快照%202016-07-24%20下午8.28.42.png">
+<meta property="og:image" content="http://oathu5z1f.bkt.clouddn.com/86A64C99-B4F6-4084-8B60-083CDAE12B23.png">
+<meta property="og:updated_time" content="2016-07-24T14:30:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhouXiaoHong">
-<meta name="twitter:description" content="iOS开发者">
+<meta name="twitter:title" content="利用多target 以及 fastlane 编写iOS打包脚本">
+<meta name="twitter:description" content="当你在专心撸代码的时候，测试妹子突然找你说，需要什么什么环境的包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英或者 fir。为了能够用笑脸来迎接测试妹子不时的问候，于是决定写一个 iOS 项目的自动打包脚本。
+首先，让我们先理一下需求。
+
+更改项目配置（例如 host、名字、bundle Id、team、版本号等）
+打包生成 .ipa 文件
+根据需">
+<meta name="twitter:image" content="http://oathu5z1f.bkt.clouddn.com/屏幕快照%202016-07-24%20下午8.28.42.png">
 
 
 
@@ -113,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/10/fastlane/"/>
 
-  <title> ZhouXiaoHong </title>
+  <title> 利用多target 以及 fastlane 编写iOS打包脚本 | ZhouXiaoHong </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -205,9 +222,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -227,10 +244,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/10/fastlane/" itemprop="url">
-                  利用多target 以及 fastlane 编写iOS打包脚本
-                </a>
+                利用多target 以及 fastlane 编写iOS打包脚本
               
             
           </h1>
@@ -277,9 +291,7 @@
       
 
       
-        
-          
-            <p>当你在专心撸代码的时候，测试妹子突然找你说，需要什么什么环境的包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英或者 fir。为了能够用笑脸来迎接测试妹子不时的问候，于是决定写一个 iOS 项目的自动打包脚本。</p>
+        <p>当你在专心撸代码的时候，测试妹子突然找你说，需要什么什么环境的包的时候，简直想打死她的心都有。然后只能停下手上的活，切分支，改环境，打包，有时候还要上传到蒲公英或者 fir。为了能够用笑脸来迎接测试妹子不时的问候，于是决定写一个 iOS 项目的自动打包脚本。</p>
 <p>首先，让我们先理一下需求。</p>
 <ol>
 <li>更改项目配置（例如 host、名字、bundle Id、team、版本号等）</li>
@@ -412,36 +424,44 @@ platform :ios do
 
 end
 </code></pre>
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+        </div>
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -449,6 +469,17 @@ end
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -468,8 +499,17 @@ end
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -512,6 +552,17 @@ end
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#更改项目配置"><span class="nav-number">1.</span> <span class="nav-text">更改项目配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建-target"><span class="nav-number">1.1.</span> <span class="nav-text">创建 target</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在代码中判断当前-target"><span class="nav-number">1.2.</span> <span class="nav-text">在代码中判断当前 target</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写-fastlane-脚本自动打包"><span class="nav-number">2.</span> <span class="nav-text">编写 fastlane 脚本自动打包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-fastlane"><span class="nav-number">2.1.</span> <span class="nav-text">安装 fastlane</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写脚本"><span class="nav-number">2.2.</span> <span class="nav-text">编写脚本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传-ipa-到蒲公英"><span class="nav-number">3.</span> <span class="nav-text">上传 ipa 到蒲公英</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上传-ipa-到-fir"><span class="nav-number">4.</span> <span class="nav-text">上传 ipa 到 fir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在-Fastfile-中调用-shell-命令"><span class="nav-number">5.</span> <span class="nav-text">在 Fastfile 中调用 shell 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完整-Fastfile-代码"><span class="nav-number">6.</span> <span class="nav-text">完整 Fastfile 代码</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -608,6 +659,10 @@ end
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -624,9 +679,9 @@ end
 
     <script type="text/javascript">
       var disqus_shortname = 'zhouxiaohong';
-      var disqus_identifier = 'index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+      var disqus_identifier = '2016/07/10/fastlane/';
+      var disqus_title = "利用多target 以及 fastlane 编写iOS打包脚本";
+      var disqus_url = 'http://yoursite.com/2016/07/10/fastlane/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -637,6 +692,8 @@ end
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   
