@@ -280,15 +280,17 @@
         
           
             <p>由于公司项目目前采用 <code>React-Native</code> 框架编写，因此每次发布版本都需要将 <code>main.jsbundle</code> 上传到服务器。为了方便起见，就写了个 shell 打包脚本。作为一个 iOS 开发，对 shell 实在是不太熟悉。花了不少时间，期间遇到了一些坑，在 Mac 上使用 <code>sed</code> 命令和 linux 上会有一定区别，在此作为记录。</p>
-<h2 id="不可忽略的备份格式"><a href="#不可忽略的备份格式" class="headerlink" title="不可忽略的备份格式"></a>不可忽略的备份格式</h2><pre><code>sed -i  ’s/hello/world/g’ hello.text
+<h2 id="不可忽略的备份格式"><a href="#不可忽略的备份格式" class="headerlink" title="不可忽略的备份格式"></a>不可忽略的备份格式</h2><pre><code>sed -i  &apos;s/hello/world/g&apos; hello.text
 </code></pre><p>上面这行代码，可以在 linux 上运行，作用是将找到的 <code>hello</code> 替换为 <code>world</code>，并且直接保存修改到文件。但是如果在 Mac 上，你会发现这行代码会报错。原因是在 Mac 上，<code>sed</code> 命令直接操作文件的时候，必须指定备份的格式，而在 linux 上，却并没有这个要求。</p>
-<pre><code>sed -i &apos;&apos; ’s/hello/world/g’ hello.php
+<pre><code>sed -i &apos;&apos; &apos;s/hello/world/g&apos; hello.php
 </code></pre><p>如上面的代码所示，在 <code>-i</code> 之后加上一对引号，来指定备份格式，如果不需要备份，引号里的内容可以为空。</p>
-<h2 id="插入文本需要换行"><a href="#插入文本需要换行" class="headerlink" title="插入文本需要换行"></a>插入文本需要换行</h2><pre><code>sed -i &apos;&apos; &apos; 1i\ hello &apos; hello.php
-</code></pre><p>上面这行代码，作用是往文件中插入 <code>hello</code> ，在 linux 下可以正常运行，但是在 Mac 上，啊哦，报错。原因是使用 <code>sed</code> 命令往文件中插入文本时，必须在 <code>1i</code> 后面插入一个换行符正确代码如下。</p>
-<pre><code>sed -i &apos;&apos; &apos; 1i\\n hello &apos; hello.php
-</code></pre><p>如果你是在终端直接敲命令执行的话，你也可以在 <code>1i\</code> 后面，敲个回车噢~</p>
-<p>这些都是血的教训啊。。。。。。。</p>
+<h2 id="插入文本需要换行"><a href="#插入文本需要换行" class="headerlink" title="插入文本需要换行"></a>插入文本需要换行</h2><pre><code>sed -i &apos;&apos; &apos;1i\ hello &apos; hello.php
+</code></pre><p>上面这行代码，作用是往文件中插入 <code>hello</code> ，在 linux 下可以正常运行，但是在 Mac 上，啊哦，报错。原因是使用 <code>sed</code> 命令往文件中插入文本时，必须在 <code>1i</code> 后面插入一个换行符正确代码如下。例如你要在终端使用此命令，正确代码如下，在 <code>1i</code> 后，敲个回车，然后继续输入后面的命令。</p>
+<pre><code>sed -i &apos;&apos; &apos;1i\
+hello&apos; hello.php
+</code></pre><p>因为我是使用 ruby 来调用 shell 脚本，因此会将命令写在字符串中，在 ruby 中使用 <code>sed</code> 插入文本的代码如下。</p>
+<pre><code>system &quot;sed -i &apos;&apos; &apos;1i\\&apos;$&apos;\n&apos;&apos;hello&apos; hello.php&quot;
+</code></pre><p>这些都是血的教训啊。。。。。。。</p>
 
           
         
